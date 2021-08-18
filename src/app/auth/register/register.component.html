@@ -1,0 +1,53 @@
+<div class="container p-3">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="mt-5 col-md-6 mx-auto">
+    <div class="card">
+      <div class="container">
+        <div class="form-group mt-4">
+          <label for="name" class="font-weight-bold">Name</label>
+          <input type="text" id="name" formControlName="name" class="form-control" placeholder="Name">
+          <div *ngIf="formControls.name.touched && formControls.name.invalid">
+            <p class="alert alert-danger mt-2 text-danger" *ngIf="formControls.name.errors?.required">Name is required</p>
+          </div>
+        </div>
+        <div class="form-group mt-4">
+          <label for="email" class="font-weight-bold">Email</label>
+          <input type="text" id="email" formControlName="email" class="form-control" placeholder="Email">
+          <div *ngIf="formControls.email.touched && formControls.email.invalid">
+            <p class="alert alert-danger mt-2 text-danger" *ngIf="formControls.email.errors?.required">Email is required</p>
+            <p class="alert alert-danger mt-2 text-danger" *ngIf="formControls.email.errors?.pattern">Email is invalid</p>
+          </div>
+        </div>
+        <div class="form-group mt-4">
+          <label for="username" class="font-weight-bold">Username</label>
+          <input type="text" id="username" formControlName="username" class="form-control" placeholder="Username">
+          <div *ngIf="formControls.username.touched && formControls.username.invalid">
+            <p class="alert alert-danger mt-2 text-danger" *ngIf="formControls.username.errors?.required">Username is required</p>
+            <p class="alert alert-danger mt-2 text-danger" *ngIf="formControls.username.hasError('whitespace')">Username cannot contain spaces
+            </p>
+          </div>
+        </div>
+        <div class="form-group mt-4">
+          <label for="password" class="font-weight-bold">Password</label>
+          <input type="text" id="password" formControlName="password" class="form-control" placeholder="Password">
+          <div *ngIf="formControls.password.touched && formControls.password.invalid">
+            <p class="alert alert-danger mt-2 text-danger" *ngIf="formControls.password.errors?.required">Password is required</p>
+            <p class="alert alert-danger mt-2 text-danger" *ngIf="formControls.password.errors?.minlength">Password has to be
+              minimum {{formControls.password.errors?.minlength.requiredLength}} characters
+            </p>
+          </div>
+        </div>
+        <div class="form-group mt-4">
+          <label for="passmatch" class="font-weight-bold">Confirm password</label>
+          <input type="text" id="passmatch" formControlName="passmatch" class="form-control" placeholder="Confirm password">
+          <div *ngIf="formControls.passmatch.touched && formControls.passmatch.invalid">
+            <p class="alert alert-danger mt-2 text-danger" *ngIf="formControls.passmatch.errors?.required">This field is required</p>
+            <p class="alert alert-danger mt-2 text-danger" *ngIf="formControls.passmatch.errors?.equalTo && !formControls.passmatch.errors?.required">This field must match password
+            </p>
+          </div>
+        </div>
+        <button class="form-control my-4 btn-primary" type="submit" [disabled]="form.invalid">Register</button>
+      </div>
+    </div>
+    <span class="d-block mt-4 text-center">Already have an account? <a routerLink="/auth">Login!</a></span>
+  </form>
+</div>

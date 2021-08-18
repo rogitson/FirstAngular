@@ -1,0 +1,16 @@
+<div class="card mt-5 shadow-sm border-primary">
+  <div class="row m-5">
+    <img class="card-img-top col-4"
+      data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+      alt="Thumbnail [100%x225]" src="{{product.image}}" data-holder-rendered="true"
+      style="height: 100%; width: 100%; display: block;">
+    <div class="card-body col-8">
+      <p class="text-muted text-right">{{product.category}}</p>
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">{{product.description}}</p>
+      <p class="font-weight-bold color-price">{{product.price | currency:'USD'}}</p>
+      <button type="button" class="btn btn-sm btn-primary w-100" (click)="addToCart(product)">Add to
+        cart</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<!-- <button (click)="addToCart()" class="btn btn-primary">Add to Cart</button> -->
+
+<body>
+
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Album example</h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the
+          creator,
+          etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-4 my-4" *ngFor="let product of products">
+            <div class="card mb-4 shadow-sm border-primary h-100">
+              <div class="mx-4 h-100 d-flex flex-column">
+                <div (click)="displayDetails(product.id)" class="mt-4">
+                  <img class="card-img-top"
+                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                    alt="Thumbnail [100%x225]" src="{{product.image}}" data-holder-rendered="true"
+                    style="height: 225px; width: 100%; display: block;">
+                  <div class="card-body">
+                    <p class="text-muted text-right">{{product.category}}</p>
+                    <h5 class="card-text">{{product.title}}</h5>
+                    <p class="font-weight-bold color-price">{{product.price | currency:'USD'}}</p>
+                  </div>
+                </div>
+                <div class="card-body mt-auto d-flex flex-column">
+                  <button type="button" class="btn btn-sm btn-primary w-100 mt-auto" (click)="addToCart(product)">Add to
+                    cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
+      <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting
+          started guide</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+      ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+  <script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+
+  </script>
+  <script src="../../assets/js/vendor/popper.min.js"></script>
+  <script src="../../dist/js/bootstrap.min.js"></script>
+  <script src="../../assets/js/vendor/holder.min.js"></script>
+
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="288" height="226" viewBox="0 0 288 226" preserveAspectRatio="none"
+    style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
+    <defs>
+      <style type="text/css"></style>
+    </defs><text x="0" y="14"
+      style="font-weight:bold;font-size:14pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text>
+  </svg>
+</body>

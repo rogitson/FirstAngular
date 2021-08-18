@@ -1,0 +1,29 @@
+<div class="container p-3">
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="mt-5 col-md-6 mx-auto">
+    <div class="card">
+      <div class="container">
+        <div class="form-group mt-4">
+          <label for="email" class="font-weight-bold">Email Address</label>
+
+          <input #email="ngModel" ngModel name="email" placeholder="Email Address" class="form-control"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+
+          <div class="alert alert-danger mt-2" *ngIf="email.touched && email.invalid">
+            <div *ngIf="email.errors?.required" class="text-danger">Email is required</div>
+            <div *ngIf="email.errors?.pattern" class="text-danger">Email is invalid</div>
+          </div>
+        </div>
+        <div class="form-group mt-4">
+          <label for="password" class="font-weight-bold">Password</label>
+
+          <input #password="ngModel" ngModel name="password" placeholder="Password" class="form-control mt-3" required>
+
+          <div class="alert alert-danger mt-2 text-danger" *ngIf="password.touched && password.invalid">
+            Password is required</div>
+        </div>
+        <button class="form-control my-4 btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+      </div>
+    </div>
+    <span class="d-block mt-4 text-center">Don't have an account? <a routerLink="/auth/register">Register now!</a></span>
+  </form>
+</div>

@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <a class="navbar-brand" href="#"><img src="assets/images/generic_logo.png" style="width: 136px;
+      height: 36px;" alt="alternative"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a routerLink="/home" class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/home/movies" class="nav-link" href="#">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/auth" class="nav-link" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/products/cart" class="nav-link" [class.disabled]="cartCount == 0 ? true : null">Cart : {{cartCount == 0? 'Empty' : cartCount}}</a>
+        </li>
+      </ul>
+    </div>
+</nav>
